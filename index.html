@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Birthday Fun Facts</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            max-width: 400px;
+        }
+    </style>
+</head>
+<body>
+    <h2>Enter Your Details</h2>
+    <form id="birthdayForm">
+        <label for="name">Name:</label><br>
+        <input type="text" id="name" required><br><br>
+
+        <label for="age">Age:</label><br>
+        <input type="number" id="age" required><br><br>
+
+        <label for="gender">Gender:</label><br>
+        <select id="gender" required>
+            <option value="">Select...</option>
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+            <option value="other">Other</option>
+        </select><br><br>
+
+        <label for="birthday">Birthday:</label><br>
+        <input type="date" id="birthday" required><br><br>
+
+        <input type="submit" value="Get Fun Fact">
+    </form>
+
+    <h3 id="funFact" style="display:none;"></h3>
+
+    <script>
+        const funFacts = [
+            "Did you know? People born on this day are often known for their creativity!",
+            "Fun fact: Many famous musicians were born on this date!",
+            "Interesting tidbit: This day in history saw the invention of something amazing!",
+            "Surprising fact: People born today are said to be natural leaders!",
+            "Did you know? This day is celebrated as a special holiday in some countries!"
+        ];
+
+        document.getElementById('birthdayForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const randomFact = funFacts[Math.floor(Math.random() * funFacts.length)];
+            document.getElementById('funFact').innerText = randomFact;
+            document.getElementById('funFact').style.display = 'block';
+        });
+    </script>
+</body>
+</html>
